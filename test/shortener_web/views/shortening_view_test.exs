@@ -1,3 +1,3 @@
-defmodule ShortenerWeb.PageViewTest do
+defmodule ShortenerWeb.ShorteningViewTest do
   use ShortenerWeb.ConnCase, async: true
 end

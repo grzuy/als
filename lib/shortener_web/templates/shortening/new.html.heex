@@ -1,0 +1,7 @@
+<%= form_for(:shortening, Routes.shortening_path(ShortenerWeb.Endpoint, :create), fn f -> %>
+  <label>
+    URL: <%= text_input(f, :url) %>
+  </label>
+
+  <%= submit("Get shortened URL") %>
+<% end) %>

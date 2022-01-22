@@ -18,10 +18,14 @@ config :shortener, Shortener.Repo,
 config :shortener, ShortenerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "ki9PyaMoPcHjtIZ+f0GN0nmCknd0JjgzVot72FlzmkEDDYFEWb9xBGcE4VbAYCfp",
-  server: false
+  server: true
+
+config :shortener, :ecto_sandbox, Ecto.Adapters.SQL.Sandbox
 
 # Print only warnings and errors during test
 config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :wallaby, otp_app: :shortener, chromedriver: [headless: true]
