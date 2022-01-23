@@ -20,6 +20,8 @@ defmodule ShortenerWeb.Router do
     get "/", ShorteningController, :new
 
     resources "/shortenings", ShorteningController, only: [:create, :show]
+
+    get "/:slug", RedirectController, :show
   end
 
   # Other scopes may use custom stacks.
