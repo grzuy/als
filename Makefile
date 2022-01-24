@@ -20,4 +20,5 @@ server:
 # `make test` will be used after `make setup` in order to run
 # your test suite.
 test:
+	mix format --check-formatted
 	mix test
