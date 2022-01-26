@@ -5,3 +5,7 @@
 
   <%= submit("Get shortened URL") %>
 <% end) %>
+
+<%= Enum.map(@shortenings, fn shortening -> %>
+  <%= render("show.html", shortening: shortening) %>
+<% end) %>

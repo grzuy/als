@@ -1,1 +1,3 @@
-Shortened URL: <%= @shortening |> Shortener.Shortening.shortened_url() %>
+<div>
+  <%= link(@shortening |> Shortener.Shortening.shortened_url(), to: @shortening.target_url) %>
+</div>

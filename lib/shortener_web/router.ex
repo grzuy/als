@@ -40,7 +40,7 @@ defmodule ShortenerWeb.Router do
     pipe_through :browser
 
     get "/", ShorteningController, :new
-    resources "/shortenings", ShorteningController, only: [:create, :show]
+    resources "/shortenings", ShorteningController, only: [:create]
 
     get "/:slug", RedirectController, :show
   end
