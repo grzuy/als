@@ -28,4 +28,6 @@ config :logger, level: :warn
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :wallaby, otp_app: :shortener, chromedriver: [headless: true]
+config :wallaby,
+  otp_app: :shortener,
+  chromedriver: [headless: System.get_env("SHOW_BROWSER") != "true"]
