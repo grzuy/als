@@ -14,16 +14,6 @@ defmodule ShortenerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ShortenerWeb do
-    pipe_through :browser
-
-    get "/", ShorteningController, :new
-
-    resources "/shortenings", ShorteningController, only: [:create, :show]
-
-    get "/:slug", RedirectController, :show
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", ShortenerWeb do
   #   pipe_through :api
@@ -44,5 +34,14 @@ defmodule ShortenerWeb.Router do
 
       live_dashboard "/dashboard", metrics: ShortenerWeb.Telemetry
     end
+  end
+
+  scope "/", ShortenerWeb do
+    pipe_through :browser
+
+    get "/", ShorteningController, :new
+    resources "/shortenings", ShorteningController, only: [:create, :show]
+
+    get "/:slug", RedirectController, :show
   end
 end
