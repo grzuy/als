@@ -1,11 +1,15 @@
 <%= form_for(:shortening, Routes.shortening_path(ShortenerWeb.Endpoint, :create), fn f -> %>
-  <label>
-    URL: <%= text_input(f, :url, autofocus: true) %>
-  </label>
+  <div class="flex flex-col sm:flex-row sm:justify-center">
+    <%= text_input(f, :url, placeholder: "Link", autofocus: true, class: "sm:grow rounded-lg sm:rounded-r-none border-1 border-slate-700 focus:border-blue-600 focus:ring-transparent p-3 text-lg") %>
 
-  <%= submit("Get shortened URL") %>
+    <%= submit("Shorten", class: "mt-2 sm:mt-0 rounded-lg sm:rounded-l-none p-3 sm:px-12 bg-blue-600 text-slate-50 font-bold") %>
+  </div>
 <% end) %>
 
-<%= Enum.map(@shortenings, fn shortening -> %>
-  <%= render("show.html", shortening: shortening) %>
-<% end) %>
+<div class="mt-16 flex flex-col justify-center">
+  <%= Enum.map(@shortenings, fn shortening -> %>
+    <div class="py-4">
+      <%= render("show.html", shortening: shortening) %>
+    </div>
+  <% end) %>
+</div>

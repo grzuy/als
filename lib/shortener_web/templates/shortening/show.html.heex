@@ -1,3 +1,7 @@
-<div>
-  <%= link(@shortening |> Shortener.Shortening.shortened_url(), to: @shortening.target_url) %>
+<div class="text-lg font-medium">
+  <%= @shortening |> Shortener.Shortening.shortened_url() %>
+</div>
+
+<div class="text-sm font-light break-all">
+  Expands to <%= link(@shortening.target_url, to: @shortening.target_url, class: "underline") %>.
 </div>
