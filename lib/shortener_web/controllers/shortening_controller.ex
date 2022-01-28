@@ -8,9 +8,8 @@ defmodule ShortenerWeb.ShorteningController do
   end
 
   def create(conn, %{"shortening" => %{"url" => url}}) do
-    shortening =
-      %Shortening{slug: Slugs.new_slug(), target_url: url}
-      |> Repo.insert!()
+    %Shortening{slug: Slugs.new_slug(), target_url: url}
+    |> Repo.insert!()
 
     redirect(conn, to: Routes.shortening_path(conn, :new))
   end
