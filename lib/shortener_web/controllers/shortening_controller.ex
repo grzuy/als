@@ -8,9 +8,17 @@ defmodule ShortenerWeb.ShorteningController do
   end
 
   def create(conn, %{"shortening" => %{"url" => url}}) do
-    %Shortening{slug: Slugs.new_slug(), target_url: url}
-    |> Repo.insert!()
+    %Shortening{}
+    |> Shortening.changeset(%{slug: Slugs.new_slug(), target_url: url})
+    |> Repo.insert()
+    |> case do
+      {:ok, _} ->
+        redirect(conn, to: Routes.shortening_path(conn, :new))
 
-    redirect(conn, to: Routes.shortening_path(conn, :new))
+      {:error, _} ->
+        conn
+        |> put_flash(:error, "Link is invalid")
+        |> redirect(to: Routes.shortening_path(conn, :new))
+    end
   end
 end
