@@ -4,10 +4,15 @@ defmodule ShortenerWeb.RedirectController do
   alias Shortener.{Repo, Shortening}
 
   def show(conn, %{"slug" => slug}) do
-    shortening =
-      Shortening
-      |> Repo.get_by!(slug: slug)
+    Shortening
+    |> Repo.get_by(slug: slug)
+    |> case do
+      nil ->
+        put_status(conn, :not_found)
+        |> html("")
 
-    redirect(conn, external: shortening.target_url)
+      shortening ->
+        redirect(conn, external: shortening.target_url)
+    end
   end
 end
