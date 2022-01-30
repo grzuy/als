@@ -15,8 +15,4 @@ defmodule Shortener.Shortening do
     |> cast(attrs, [:slug, :target_url])
     |> validate_required([:slug, :target_url])
   end
-
-  def shortened_url(shortening) do
-    "#{ShortenerWeb.Endpoint.url()}/#{shortening.slug}"
-  end
 end
