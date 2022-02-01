@@ -1,0 +1,9 @@
+Things to consider for more serious implementation:
+
+1. User sign up/sign in and scoping shortenings to users
+2. Copy to clipboard button next to shortened URL to improve UX
+3. Serious URL format regex validation
+4. Better algorithm to generate slugs (see notes in lib/shortener/slugs.ex)
+5. Service abuse protection by rate limiting client requests
+6. Validate that the URL actually points to a valid resource
+7. Expiration of shortenings and potential recycling of slugs?
