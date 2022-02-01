@@ -1,7 +1,7 @@
 # Shortener
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-![CI workflow](https://github.com/grzuy/shortener/actions/workflows/ci.yml/badge.svg)
+![CI workflow](https://github.com/grzuy/als/actions/workflows/ci.yml/badge.svg)
 
 To start your Phoenix server:
 
